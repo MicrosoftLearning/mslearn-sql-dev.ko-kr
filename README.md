@@ -1,3 +1,11 @@
+#README
+
+We've turned off the ability to report issues directly on this repo and do not monitor PRs.
+
+Provide feedback here: https://aka.ms/provide-feedback
+
+Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
+
 # Azure SQL 개발
 
 이 리포지토리에는 Microsoft Learn 및 ILT 콘텐츠용 연습 파일이 포함되어 있습니다.
