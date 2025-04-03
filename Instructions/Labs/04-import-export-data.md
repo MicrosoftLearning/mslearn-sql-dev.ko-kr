@@ -152,7 +152,7 @@ Azure Storage 계정을 만드는 것부터 시작하겠습니다.
     SECRET = '<your-sas-token>';
     ```
 
-    ***<your-sas-token>*** 을 앞서 생성한 **Blob SAS 토큰**으로 바꿉니다.
+    <your-sas-token>을 앞서 생성한 Blob SAS 토큰으로 바꿉니다.
 
 1. 마지막으로 Azure Blob Storage에 액세스하려면 **데이터 원본**이 필요합니다. 다음 SQL 명령을 실행하여 **데이터 원본**을 만듭니다.
 
@@ -165,7 +165,7 @@ Azure Storage 계정을 만드는 것부터 시작하겠습니다.
     );
     ```
 
-    ***<your-storage-account-name>*** 을 Azure Storage 계정 이름으로 바꿉니다.
+    <your-storage-account-name>을 Azure Storage 계정 이름으로 바꿉니다.
 
 이제 모든 것이 **employees.json** 파일에서 *Azure SQL 데이터베이스*로 데이터를 가져오도록 설정되었습니다.
 
