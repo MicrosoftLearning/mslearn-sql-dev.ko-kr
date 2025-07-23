@@ -58,7 +58,7 @@ lab:
 다음으로 새 GitHub 리포지토리를 설정해야 합니다.
 
 1. [GitHub](https://github.com) 웹 사이트를 엽니다.
-1. GitHub 계정으로 로그인합니다.
+1. GitHub 계정에 로그인합니다.
 1. 계정 아래의 **리포지토리**로 이동하여 **새로 만들기**를 선택합니다.
 1. **소유자**에 대한 계정을 선택합니다. **my-sql-db-repo**라는 이름을 입력합니다.
 1. 리포지토리를 **비공개**로 설정합니다.
@@ -173,6 +173,7 @@ GitHub Actions를 사용하면 GitHub 리포지토리에서 직접 소프트웨�
 1. **직접 워크플로 설정** 링크를 선택합니다.
 1. 아래 코드를 **main.yml** 파일에 복사합니다. 이 코드에는 데이터베이스 프로젝트를 빌드하고 배포하는 단계가 포함되어 있습니다.
 
+    {% raw %}
     ```yaml
     name: Build and Deploy SQL Database Project
     on:
@@ -208,8 +209,9 @@ GitHub Actions를 사용하면 GitHub 리포지토리에서 직접 소프트웨�
               action: 'publish'
               build-arguments: '-c Release'
               arguments: '/p:DropObjectsNotInSource=true'  # Optional: Customize as needed
-      ```
-
+    ```
+    {% endraw %}
+   
       YAML 파일의 **SQL 프로젝트 빌드 및 배포** 단계는 `AZURE_CONN_STRING` 비밀에 저장된 연결 문자열을 사용하여 Azure SQL 데이터베이스에 연결합니다. 이 작업은 SQL 프로젝트 파일의 경로를 지정하고, 프로젝트를 배포하기 위해 게시할 작업을 설정하며, 릴리스 모드에서 컴파일할 빌드 인수를 포함합니다. 또한 `/p:DropObjectsNotInSource=true` 인수를 사용하여 배포 중에 원본에 없는 모든 개체가 대상 데이터베이스에서 삭제되도록 합니다.
 
 1. 변경 내용을 커밋합니다.
@@ -234,7 +236,7 @@ Azure SQL 데이터베이스 프로젝트를 빌드하고 배포하기 위한 Gi
 
 ## 정리
 
-본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기에서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 
+본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 
 
 리소스를 불필요하게 실행하면 추가 비용이 발생할 수 있습니다. 리소스를 개별적으로 삭제하거나 [Azure Portal](https://portal.azure.com?azure-portal=true)에서 전체 리소스 집합을 삭제할 수 있습니다.
 
