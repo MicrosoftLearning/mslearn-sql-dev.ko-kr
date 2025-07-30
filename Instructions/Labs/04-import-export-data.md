@@ -27,6 +27,7 @@ lab:
 
 이 단계를 수행하려면 Azure에서 데이터베이스를 만들어야 합니다.
 
+1. [Azure Portal](https://portal.azure.com?azure-portal=true)에 로그인합니다.
 1. Azure Portal에서 **SQL 데이터베이스** 페이지로 이동합니다.
 1. **만들기**를 실행합니다.
 1. 필수 필드 작성:
@@ -35,20 +36,21 @@ lab:
     |---|---|
     | 무료 서버리스 제품 | 제품 적용 |
     | 구독 | 구독 |
-    | 리소스 그룹 | 리소스 그룹 선택 또는 새로 만들기 |
+    | 리소스 그룹 | *리소스 그룹 선택 또는 새로 만들기* |
     | 데이터베이스 이름 | **MyDB** |
-    | 서버 | 새 서버 선택 또는 만들기 |
+    | 서버 | ***새로 만들기** 링크를 선택합니다* |
+    | 서버 이름 | *고유한 이름 선택* |
+    | 위치 | *위치를 선택합니다* |
     | 인증 방법 | SQL 인증 |
     | 서버 관리자 로그인 | **sqladmin** |
-    | 암호 | 보안 비밀번호 입력 |
-    | 암호 확인 | 비밀번호 확인 |
+    | 암호 | *보안 암호 입력* |
+    | 암호 확인 | *비밀번호를 확인합니다* |
 
 1. **검토 + 만들기**와 **만들기**를 차례로 클릭합니다.
 1. 배포가 완료되면 ***Azure SQL Server***(Azure SQL 데이터베이스가 아님)의 **네트워킹** 섹션으로 이동합니다.
     1. 방화벽 규칙에 IP 주소를 추가합니다. 이렇게 하면 SSMS(SQL Server Management Studio) 또는 Azure Data Studio를 사용하여 데이터베이스를 관리할 수 있습니다.
     1. **Azure 서비스 및 리소스에서 이 서버에 액세스할 수 있도록 허용** 확인란을 선택합니다. 이렇게 하면 Azure 함수 앱에서 데이터베이스 서버에 액세스할 수 있습니다.
     1. 변경 내용을 저장합니다.
-1. **Azure SQL Server**의 **Microsoft Entra ID** 섹션으로 이동하여 **이 서버에 Microsoft Entra 인증만 지원**을 *선택 해제*하고 선택되어 있는 경우 변경 사항을 **저장**합니다. 이 예에서는 SQL 인증을 사용하므로 Entra 전용 지원을 사용 중지해야 합니다.
 
 > [!NOTE]
 > 프로덕션 환경에서는 액세스 유형과 액세스를 허용할 위치를 결정해야 합니다. Entra 인증만 선택하면 함수에 약간의 변경 사항이 있을 수 있지만, Azure 함수 앱이 서버에 액세스할 수 있도록 하려면 *이 서버에 대한 Azure 서비스 및 리소스 액세스 허용*을 사용하도록 설정해야 한다는 점에 유의합니다.
@@ -232,7 +234,7 @@ SELECT * FROM dbo.employee_data;
     $functionappname = "YourUniqueFunctionAppName"
     $resourcegroup = "YourResourceGroupName"
     $location = "YourLocation"
-    # NOTE - The following should be a new storage account name where your Azure function will resided.
+    # NOTE - The following should be a new storage account name where your Azure function will reside.
     # It should not be the same Storage Account name used to store the JSON file
     $storageaccount = "YourStorageAccountName"
 
